@@ -2,7 +2,5 @@
 <resources>
     <declare-styleable name="CustomView">
         <attr name="textSize" format="dimension"/>
-        <attr name="layout_weight" format="float"/>
-        <attr name="android:entries"/>
     </declare-styleable>
 </resources>
