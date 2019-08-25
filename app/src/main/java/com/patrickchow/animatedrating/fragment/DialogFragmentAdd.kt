@@ -20,15 +20,6 @@ class DialogFragmentAdd : DialogFragment(){
         //Inflate the xml in order to get the views
         val view = inflater.inflate(com.patrickchow.animatedrating.R.layout.dialog_fragment, container)
 
-        //Assign variables to reference the views
-        val addWord = view.et_input
-        val addBtn = view.btn_confirm_add
-
-        addBtn.setOnClickListener {
-
-            Log.i("It","Worked")
-        }
-
         return view
     }
 

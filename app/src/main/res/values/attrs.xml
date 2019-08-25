@@ -3,5 +3,6 @@
     <declare-styleable name="CustomView">
         <attr name="maximumRating" format="integer"/>
         <attr name="startingRating" format ="integer"/>
+        <attr name="textSize" format="float"/>
     </declare-styleable>
 </resources>
