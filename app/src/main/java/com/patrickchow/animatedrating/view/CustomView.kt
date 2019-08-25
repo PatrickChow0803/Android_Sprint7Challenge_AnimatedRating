@@ -18,13 +18,16 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
     init{
         //Get the attributes from attrs.xml
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomView)
-        val textSize = typedArray.getDimension(R.styleable.CustomView_textSize, 16f)
+        val maximumRating = typedArray.getInt(R.styleable.CustomView_maximumRating, 5)
+        val startingRating = typedArray.getInt(R.styleable.CustomView_startingRating, 1)
         typedArray.recycle()
+
+        val name = TextView(context)
+
 
         //Give the button attributes and gives it an onClickListener to input text views into the LinearLayout
         val buttonParams = Button(context)
         buttonParams.text = "ADD"
-        buttonParams.textSize = textSize
         buttonParams.textAlignment = Button.TEXT_ALIGNMENT_CENTER
         buttonParams.setOnClickListener {
 
