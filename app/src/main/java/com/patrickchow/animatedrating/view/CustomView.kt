@@ -1,12 +1,11 @@
 package com.patrickchow.animatedrating.view
 
 import android.content.Context
+import android.content.Intent
 import android.util.AttributeSet
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.DialogFragment
 import com.patrickchow.animatedrating.R
 import com.patrickchow.animatedrating.activity.MainActivity
@@ -16,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context, attrs){
 
     constructor(context: Context): this(context, null)
+
+    val myLayout = ll_list_of_words
 
     init{
         //Get the attributes from attrs.xml
@@ -32,18 +33,24 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
         et_word.textSize = textSize
         et_word.hint = "Enter here"
 
-        //Give the button attributes and gives it an onClickListener to input text views into the LinearLayout
-        val buttonParams = Button(context)
-        buttonParams.text = "ADD"
-        buttonParams.textAlignment = Button.TEXT_ALIGNMENT_CENTER
-        buttonParams.setOnClickListener {
-            ll_list_of_words.addView(createTextView("It Worked"))
+        val button_add = Button(context)
+        button_add.text = "Add"
+
+        button_add.setOnClickListener {
+            addView(createTextView(et_word.text.toString()))
+        }
+
+        val image = ImageView(context)
+        image.setImageResource(R.drawable.ic_launcher_background)
+        image.setOnClickListener {
+            
         }
 
         //Sets the LinearLayout to be vertical and add the button to create views
         orientation = VERTICAL
         addView(et_word)
-        addView(buttonParams)
+        addView(button_add)
+        addView(image)
     }
 
     //Used for testing to add a TextView to the linear layout

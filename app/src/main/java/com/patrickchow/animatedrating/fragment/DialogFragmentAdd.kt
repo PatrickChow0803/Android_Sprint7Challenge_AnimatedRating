@@ -10,7 +10,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.dialog_fragment.view.*
 import androidx.fragment.app.FragmentActivity
-
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dialog_fragment.*
 
 
 class DialogFragmentAdd : DialogFragment(){
