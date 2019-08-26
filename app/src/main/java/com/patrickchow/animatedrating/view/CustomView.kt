@@ -3,6 +3,7 @@ package com.patrickchow.animatedrating.view
 import android.content.Context
 import android.content.Intent
 import android.util.AttributeSet
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
@@ -16,7 +17,9 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
 
     constructor(context: Context): this(context, null)
 
-    val myLayout = ll_list_of_words
+    companion object{
+        var myList = mutableListOf<TextView>()
+    }
 
     init{
         //Get the attributes from attrs.xml
@@ -37,13 +40,15 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
         button_add.text = "Add"
 
         button_add.setOnClickListener {
-            addView(createTextView(et_word.text.toString()))
+            myList.add(createTextView(et_word.text.toString()))
+            val testing = et_word.text.toString()
+            Log.i("this", "$testing")
         }
 
         val image = ImageView(context)
         image.setImageResource(R.drawable.ic_launcher_background)
         image.setOnClickListener {
-            
+
         }
 
         //Sets the LinearLayout to be vertical and add the button to create views
