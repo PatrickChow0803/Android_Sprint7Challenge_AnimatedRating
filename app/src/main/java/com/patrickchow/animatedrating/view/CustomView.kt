@@ -2,10 +2,12 @@ package com.patrickchow.animatedrating.view
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Animatable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.DialogFragment
 import com.patrickchow.animatedrating.R
@@ -46,16 +48,32 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
         }
 
         val image = ImageView(context)
-        image.setImageResource(R.drawable.ic_launcher_background)
-        image.setOnClickListener {
+        animateVectorDrawable(R.drawable.avd_anim, image)
 
-        }
+        val image2 = ImageView(context)
+        animateVectorDrawable(R.drawable.avd_anim, image2)
+
+        val image3 = ImageView(context)
+        animateVectorDrawable(R.drawable.avd_anim, image3)
+
+        val image4 = ImageView(context)
+        animateVectorDrawable(R.drawable.avd_anim, image4)
+
+        val image5 = ImageView(context)
+        animateVectorDrawable(R.drawable.avd_anim, image5)
+
+        val ll_test = LinearLayout(context)
+        ll_test.layoutParams
 
         //Sets the LinearLayout to be vertical and add the button to create views
         orientation = VERTICAL
         addView(et_word)
         addView(button_add)
         addView(image)
+        addView(image2)
+        addView(image3)
+        addView(image4)
+        addView(image5)
     }
 
     //Used for testing to add a TextView to the linear layout
@@ -63,6 +81,13 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
         val myTextView = TextView(context)
         myTextView.text = text
         return myTextView
+    }
+
+    //Animates the animated vector drawable
+    private fun animateVectorDrawable(id: Int, view: ImageView){
+        val animatedVectorDrawable = ContextCompat.getDrawable(context, id)
+        view.setImageDrawable(animatedVectorDrawable)
+        (animatedVectorDrawable as Animatable).start()
     }
 
 
