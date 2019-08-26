@@ -21,6 +21,7 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
 
     companion object{
         var myList = mutableListOf<TextView>()
+        var ratingValue = 5
     }
 
     init{
@@ -47,8 +48,8 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
             Log.i("this", "$testing")
         }
 
-        val image = ImageView(context)
-        animateVectorDrawable(R.drawable.avd_anim, image)
+        val image1 = ImageView(context)
+        animateVectorDrawable(R.drawable.avd_anim, image1)
 
         val image2 = ImageView(context)
         animateVectorDrawable(R.drawable.avd_anim, image2)
@@ -62,6 +63,56 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
         val image5 = ImageView(context)
         animateVectorDrawable(R.drawable.avd_anim, image5)
 
+        image1.setOnClickListener {
+            animateVectorDrawable(R.drawable.avd_anim, image1)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image2)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image3)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image4)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image5)
+
+            ratingValue = 1
+        }
+
+        image2.setOnClickListener {
+            animateVectorDrawable(R.drawable.avd_anim, image1)
+            animateVectorDrawable(R.drawable.avd_anim, image2)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image3)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image4)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image5)
+
+            ratingValue = 2
+        }
+
+        image3.setOnClickListener {
+            animateVectorDrawable(R.drawable.avd_anim, image1)
+            animateVectorDrawable(R.drawable.avd_anim, image2)
+            animateVectorDrawable(R.drawable.avd_anim, image3)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image4)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image5)
+
+            ratingValue = 3
+        }
+
+        image4.setOnClickListener {
+            animateVectorDrawable(R.drawable.avd_anim, image1)
+            animateVectorDrawable(R.drawable.avd_anim, image2)
+            animateVectorDrawable(R.drawable.avd_anim, image3)
+            animateVectorDrawable(R.drawable.avd_anim, image4)
+            animateVectorDrawable(R.drawable.avd_anim_empty, image5)
+
+            ratingValue = 4
+        }
+
+        image5.setOnClickListener {
+            animateVectorDrawable(R.drawable.avd_anim, image1)
+            animateVectorDrawable(R.drawable.avd_anim, image2)
+            animateVectorDrawable(R.drawable.avd_anim, image3)
+            animateVectorDrawable(R.drawable.avd_anim, image4)
+            animateVectorDrawable(R.drawable.avd_anim, image5)
+
+            ratingValue = 5
+        }
+
         val ll_test = LinearLayout(context)
         ll_test.layoutParams
 
@@ -69,7 +120,7 @@ class CustomView (context: Context, attrs: AttributeSet?): LinearLayout(context,
         orientation = VERTICAL
         addView(et_word)
         addView(button_add)
-        addView(image)
+        addView(image1)
         addView(image2)
         addView(image3)
         addView(image4)

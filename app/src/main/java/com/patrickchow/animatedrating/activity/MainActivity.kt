@@ -32,8 +32,13 @@ class MainActivity : AppCompatActivity() {
 
         btn_refresh.setOnClickListener {
 
-            val test = CustomView.myList[counter]
-            ll_list_of_words.addView(test)
+            val word = CustomView.myList[counter]
+            ll_list_of_words.addView(word)
+
+            val rating = "Rating is  ${CustomView.ratingValue}"
+            val ratingView = TextView(this)
+            ratingView.text = rating.toString()
+            ll_list_of_words.addView(ratingView)
             super.onPostResume()
         }
     }
